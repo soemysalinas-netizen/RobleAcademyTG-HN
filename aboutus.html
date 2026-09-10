@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - El Roble Academy</title>
+
+    <!-- TIPOGRAFÍAS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            padding-top: 175px;
+            padding-bottom: 70px;
+            background: linear-gradient(135deg, #e8f5e9, #f8fff8);
+            color: #333;
+        }
+
+        /* =========================
+           BANNER
+        ========================= */
+
+        .banner {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 120px;
+            background: linear-gradient(135deg, #0b5d3b, #198754, #2e8b57);
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.25);
+            overflow: hidden;
+        }
+
+        .banner::before,
+        .banner::after {
+            content: "";
+            position: absolute;
+            width: 180px;
+            height: 180px;
+            border: 3px solid rgba(255, 255, 255, 0.15);
+            border-radius: 50%;
+        }
+
+        .banner::before {
+            left: -60px;
+            top: -80px;
+        }
+
+        .banner::after {
+            right: -60px;
+            bottom: -80px;
+        }
+
+        .banner h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 42px;
+            letter-spacing: 2px;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
+            z-index: 2;
+        }
+
+        /* =========================
+           MENU
+        ========================= */
+
+        .menu {
+            position: fixed;
+            top: 120px;
+            left: 0;
+            width: 100%;
+            height: 55px;
+            background-color: #06452c;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 999;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .menu ul {
+            list-style: none;
+            display: flex;
+            gap: 12px;
+        }
+
+        .menu a {
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            padding: 10px 16px;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+        }
+
+        .menu a:hover {
+            background-color: #3cb371;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+            transform: translateY(-2px);
+        }
+
+        /* =========================
+           CONTENIDO
+        ========================= */
+
+        .container {
+            width: 90%;
+            max-width: 1100px;
+            margin: 35px auto;
+            background-color: white;
+            padding: 55px 50px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 70, 40, 0.15);
+            border-top: 6px solid #198754;
+            position: relative;
+        }
+
+        .container::before {
+            content: "✦";
+            position: absolute;
+            top: 15px;
+            left: 25px;
+            color: #198754;
+            font-size: 25px;
+        }
+
+        .container::after {
+            content: "✦";
+            position: absolute;
+            top: 15px;
+            right: 25px;
+            color: #198754;
+            font-size: 25px;
+        }
+
+        /* =========================
+           TITULOS
+        ========================= */
+
+        h2 {
+            font-family: 'Playfair Display', serif;
+            color: #0b5d3b;
+            text-align: center;
+            font-size: 36px;
+            margin-bottom: 25px;
+        }
+
+        h2::after {
+            content: "";
+            display: block;
+            width: 80px;
+            height: 4px;
+            background-color: #3cb371;
+            margin: 12px auto;
+            border-radius: 5px;
+        }
+
+        h3 {
+            font-family: 'Playfair Display', serif;
+            color: #0b5d3b;
+            font-size: 27px;
+            margin-top: 40px;
+            margin-bottom: 18px;
+            text-align: center;
+        }
+
+        p {
+            line-height: 1.8;
+            font-size: 17px;
+            margin-bottom: 15px;
+            color: #555;
+            text-align: center;
+        }
+
+        /* =========================
+           CARRUSEL
+        ========================= */
+
+        .carousel {
+            width: 80%;
+            max-width: 700px;
+            margin: 25px auto;
+            overflow: hidden;
+            border-radius: 18px;
+            border: 5px solid #198754;
+            box-shadow: 0 8px 25px rgba(0, 80, 40, 0.25);
+            background-color: #06452c;
+        }
+
+        .carousel-container {
+            display: flex;
+            width: 500%;
+            animation: slide 20s infinite;
+        }
+
+        .carousel img {
+            width: 20%;
+            height: 350px;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* =========================
+           ANIMACIÓN DEL CARRUSEL
+        ========================= */
+
+        @keyframes slide {
+
+            0% {
+                transform: translateX(0);
+            }
+
+            16% {
+                transform: translateX(0);
+            }
+
+            20% {
+                transform: translateX(-20%);
+            }
+
+            36% {
+                transform: translateX(-20%);
+            }
+
+            40% {
+                transform: translateX(-40%);
+            }
+
+            56% {
+                transform: translateX(-40%);
+            }
+
+            60% {
+                transform: translateX(-60%);
+            }
+
+            76% {
+                transform: translateX(-60%);
+            }
+
+            80% {
+                transform: translateX(-80%);
+            }
+
+            96% {
+                transform: translateX(-80%);
+            }
+
+            100% {
+                transform: translateX(0);
+            }
+        }
+
+        /* =========================
+           VIDEO
+        ========================= */
+
+        .video-section {
+            text-align: center;
+            margin-top: 45px;
+        }
+
+        .video-section video {
+            width: 80%;
+            max-width: 700px;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 18px;
+            display: block;
+            margin: 25px auto;
+            border: 5px solid #198754;
+            box-shadow: 0 8px 25px rgba(0, 80, 40, 0.25);
+            background-color: #06452c;
+        }
+
+        /* =========================
+           TABLA
+        ========================= */
+
+        table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            margin-top: 25px;
+            overflow: hidden;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 70, 40, 0.15);
+        }
+
+        th,
+        td {
+            padding: 15px;
+            text-align: center;
+        }
+
+        th {
+            background: linear-gradient(135deg, #0b5d3b, #198754);
+            color: white;
+            font-size: 16px;
+            letter-spacing: 0.5px;
+        }
+
+        td {
+            border-bottom: 1px solid #d9eee1;
+            color: #444;
+            font-size: 15px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #eef8f1;
+        }
+
+        tr:hover {
+            background-color: #d8f0df;
+        }
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        .footer {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 70px;
+            background: linear-gradient(135deg, #06452c, #0b5d3b);
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .footer p {
+            font-size: 14px;
+            color: white;
+            margin: 0;
+        }
+
+        /* =========================
+           RESPONSIVE
+        ========================= */
+
+        @media (max-width: 800px) {
+
+            body {
+                padding-top: 220px;
+            }
+
+            .banner h1 {
+                font-size: 30px;
+            }
+
+            .menu {
+                height: 100px;
+            }
+
+            .menu ul {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 5px;
+            }
+
+            .menu a {
+                font-size: 12px;
+                padding: 8px 10px;
+            }
+
+            .container {
+                width: 94%;
+                padding: 45px 20px;
+            }
+
+            h2 {
+                font-size: 29px;
+            }
+
+            h3 {
+                font-size: 24px;
+            }
+
+            p {
+                font-size: 16px;
+            }
+
+            .carousel {
+                width: 100%;
+            }
+
+            .carousel img {
+                height: 250px;
+            }
+
+            .video-section video {
+                width: 100%;
+                height: 250px;
+            }
+
+            th,
+            td {
+                padding: 9px 5px;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <!-- BANNER -->
+
+    <header class="banner">
+        <h1>El Roble Academy</h1>
+    </header>
+
+
+    <!-- MENU -->
+
+    <nav class="menu">
+
+        <ul>
+
+            <li>
+                <a href="./index.html">INDEX</a>
+            </li>
+
+            <li>
+                <a href="./aboutus.html">ABOUT US</a>
+            </li>
+
+            <li>
+                <a href="./history.html">HISTORY</a>
+            </li>
+
+            <li>
+                <a href="./achievement.html">ACHIEVEMENT</a>
+            </li>
+
+            <li>
+                <a href="./campus.html">CAMPUS</a>
+            </li>
+
+            <li>
+                <a href="./contact.html">CONTACT</a>
+            </li>
+
+        </ul>
+
+    </nav>
+
+
+    <!-- CONTENIDO PRINCIPAL -->
+
+    <main class="container">
+
+        <h2>About Us</h2>
+
+        <p>
+            Welcome to our organization. We are committed to providing
+            quality education, developing talented students, and creating
+            opportunities for our community.
+        </p>
+
+        <p>
+            Our institution promotes academic excellence, teamwork,
+            leadership, innovation, and personal development.
+        </p>
+
+
+        <!-- =========================
+             CARRUSEL DE FOTOS
+        ========================= -->
+
+        <h3>Our Institution</h3>
+
+        <div class="carousel">
+
+            <div class="carousel-container">
+
+                <img src="file:///C:/Users/admin/OneDrive/Im%C3%A1genes/Senior%20Book%20Soemy/Roble%20Academy/fotos/roble2.jpe"alt="">
+                <img src="file:///C:/Users/admin/OneDrive/Im%C3%A1genes/Senior%20Book%20Soemy/Roble%20Academy/fotos/roble3.jpe"alt="">
+                <img src="file:///C:/Users/admin/OneDrive/Im%C3%A1genes/Senior%20Book%20Soemy/Roble%20Academy/fotos/roble4.jpg"alt="">
+                
+            </div>
+
+        </div>
+
+
+        <!-- =========================
+             VIDEO
+        ========================= -->
+
+        <div class="video-section">
+
+            <h3>Our Video</h3>
+
+            <p>
+                Watch our video to learn more about our institution.
+            </p>
+
+            <video controls>
+
+                <source src="file:///C:/Users/admin/OneDrive/Im%C3%A1genes/Senior%20Book%20Soemy/Roble%20Academy/fotos/roble6.mp4"type="video/mp4">
+
+                Your browser does not support the video tag.
+
+            </video>
+
+        </div>
+
+
+        <!-- =========================
+             TABLA
+        ========================= -->
+
+        <h3>Our Main Areas</h3>
+
+        <table>
+
+            <tr>
+
+                <th>Area</th>
+                <th>Description</th>
+                <th>Students</th>
+
+            </tr>
+
+            <tr>
+
+                <td>Ballet</td>
+                <td>Dance with me</td>
+                <td>100+</td>
+
+            </tr>
+
+            <tr>
+
+                <td>Sports</td>
+                <td>Different sports and recreational activities</td>
+                <td>50+</td>
+
+            </tr>
+
+            <tr>
+
+                <td>Technology</td>
+                <td>Computer and technology programs</td>
+                <td>100+</td>
+
+            </tr>
+
+            <tr>
+
+                <td>Band</td>
+                <td>Band members</td>
+                <td>30+</td>
+
+            </tr>
+
+        </table>
+
+    </main>
+
+
+    <!-- FOOTER -->
+
+    <footer class="footer">
+
+        <p>
+            &copy; 2026 El Roble Academy | All Rights Reserved
+        </p>
+
+    </footer>
+
+</body>
+</html>
